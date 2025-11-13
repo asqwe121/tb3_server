@@ -67,4 +67,4 @@ def generate_launch_description():
 
     return LaunchDescription([
         robot_namespaces_arg, use_sim_time_arg, frame_id_arg,
-        *nodes
+        *nodes])

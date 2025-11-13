@@ -1,0 +1,216 @@
+#!/usr/bin/env python3
+# FastAPI + ROS 2 Nav2 브릿지 (멀티 네임스페이스 지원)
+# - 외부 파라미터 자동 수용 (automatically_declare_parameters_from_overrides=True)
+# - uvicorn은 문자열 "server:app" 대신 app 객체 직접 실행
+# - FastAPI lifespan 사용(Deprecated on_event 대체)
+
+import os
+import math
+import threading
+from typing import Dict, List, Optional
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+import rclpy
+from rclpy.node import Node
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.action import ActionClient
+
+from geometry_msgs.msg import PoseStamped
+from nav2_msgs.action import NavigateToPose
+
+
+def _q_from_yaw(yaw: float):
+    # z,w만 쓰는 평면 요(roll/pitch=0)
+    half = yaw * 0.5
+    return (0.0, 0.0, math.sin(half), math.cos(half))
+
+
+def _join_action(ns: str, name: str) -> str:
+    # ns가 ''이면 '/name', '/tb3_1'이면 '/tb3_1/name'
+    if not ns:
+        return f'/{name}'
+    return ns.rstrip('/') + f'/{name}'
+
+
+class NavBridge(Node):
+    def __init__(self):
+        # 외부 --ros-args 파라미터를 자동으로 선언/적용
+        super().__init__(
+            'tb3_server',
+            namespace='',
+            allow_undeclared_parameters=True,
+            automatically_declare_parameters_from_overrides=True,
+        )
+
+        # 파라미터 가져오기 (없으면 기본값)
+        self.use_sim_time = self._p('use_sim_time', True)
+        self.frame_id: str = self._p('frame_id', 'map')
+        # 로봇 네임스페이스 목록
+        ns_list = self._p('robot_namespaces', [''])
+        # rviz/launch에서 종종 문자열로 들어오는 경우 방지
+        if isinstance(ns_list, str):
+            # '[/tb3_1,/tb3_2]' 형태도 들어올 수 있어 간단 파싱
+            ns_list = ns_list.strip().strip('[]').replace('"', '').replace("'", '')
+            ns_list = [s.strip() for s in ns_list.split(',') if s.strip()]
+            if not ns_list:
+                ns_list = ['']
+        self.namespaces: List[str] = []
+        for ns in ns_list:
+            ns = ns.strip()
+            if ns and not ns.startswith('/'):
+                ns = '/' + ns
+            self.namespaces.append(ns)
+
+        # Nav2 액션 클라이언트들
+        self.nav_clients: Dict[str, ActionClient] = {}
+        for ns in self.namespaces:
+            action_name = _join_action(ns, 'navigate_to_pose')
+            cli = ActionClient(self, NavigateToPose, action_name)
+            self.nav_clients[ns] = cli
+            self.get_logger().info(f"[INIT] ActionClient for {ns or '/'} → {action_name}")
+
+        self.get_logger().info(
+            f"[READY] TB3 Server up: ns={self.namespaces}, frame='{self.frame_id}'"
+        )
+
+    # 안전한 파라미터 접근
+    def _p(self, name: str, default):
+        try:
+            if self.has_parameter(name):
+                return self.get_parameter(name).value
+        except Exception:
+            pass
+        return default
+
+    def is_ready(self, ns: str) -> bool:
+        cli = self.nav_clients.get(ns)
+        if not cli:
+            return False
+        return cli.wait_for_server(timeout_sec=0.0)
+
+    def goto(self, ns: str, x: float, y: float, yaw: float) -> bool:
+        cli = self.nav_clients.get(ns)
+        if not cli:
+            self.get_logger().error(f"[GOAL] unknown namespace: {ns}")
+            return False
+        if not cli.wait_for_server(timeout_sec=0.0):
+            self.get_logger().warn(f"[GOAL] action server not ready: {ns}")
+            return False
+
+        pose = PoseStamped()
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.header.frame_id = self.frame_id
+        pose.pose.position.x = x
+        pose.pose.position.y = y
+        qx, qy, qz, qw = _q_from_yaw(yaw)
+        pose.pose.orientation.x = qx
+        pose.pose.orientation.y = qy
+        pose.pose.orientation.z = qz
+        pose.pose.orientation.w = qw
+
+        goal = NavigateToPose.Goal()
+        goal.pose = pose
+
+        # 비동기 전송 (콜백에서 결과 로깅)
+        send_future = cli.send_goal_async(goal)
+        def _sent(fut):
+            try:
+                goal_handle = fut.result()
+                if not goal_handle.accepted:
+                    self.get_logger().warn(f"[GOAL] rejected: {ns} -> ({x:.2f},{y:.2f},{yaw:.2f})")
+                    return
+                self.get_logger().info(f"[GOAL] accepted: {ns} -> ({x:.2f},{y:.2f},{yaw:.2f})")
+                result_future = goal_handle.get_result_async()
+                def _done(rf):
+                    try:
+                        res = rf.result().result
+                        self.get_logger().info(f"[DONE] {ns} NavigateToPose result: {res}")
+                    except Exception as e:
+                        self.get_logger().error(f"[ERR] result future: {e}")
+                result_future.add_done_callback(_done)
+            except Exception as e:
+                self.get_logger().error(f"[ERR] send_goal_async: {e}")
+        send_future.add_done_callback(_sent)
+        return True
+
+
+# ---------- FastAPI ----------
+class GoalReq(BaseModel):
+    ns: str
+    x: float
+    y: float
+    yaw: float  # 라디안
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # ROS 2 노드 시작
+    rclpy.init(args=None)
+    node = NavBridge()
+    exec = MultiThreadedExecutor()
+    exec.add_node(node)
+    spin_thread = threading.Thread(target=exec.spin, daemon=True)
+    spin_thread.start()
+
+    app.state.node = node
+    app.state.exec = exec
+    app.state.spin_thread = spin_thread
+    try:
+        yield
+    finally:
+        # 종료
+        exec.shutdown()
+        try:
+            node.destroy_node()
+        except Exception:
+            pass
+        rclpy.shutdown()
+
+
+app = FastAPI(lifespan=lifespan)
+
+
+def _node() -> NavBridge:
+    n = getattr(app.state, 'node', None)
+    if n is None:
+        raise HTTPException(503, "ROS node not ready")
+    return n
+
+
+@app.get("/status")
+def status():
+    node = _node()
+    return {
+        "frame_id": node.frame_id,
+        "namespaces": node.namespaces,
+        "servers": {ns if ns else "/": node.is_ready(ns) for ns in node.namespaces},
+    }
+
+
+@app.post("/goal")
+def goal(req: GoalReq):
+    node = _node()
+    ns = req.ns.strip()
+    if ns and not ns.startswith('/'):
+        ns = '/' + ns
+    if ns not in node.namespaces:
+        raise HTTPException(404, f"unknown namespace: {ns} (known={node.namespaces})")
+    ok = node.goto(ns, req.x, req.y, req.yaw)
+    if not ok:
+        raise HTTPException(503, f"action server not ready: {ns}")
+    return {"status": "sent", "ns": ns, "target": [req.x, req.y, req.yaw]}
+
+
+def main():
+    # uvicorn 포트는 환경변수 TB3_PORT 사용 (기본 8001)
+    port = int(os.environ.get("TB3_PORT", "8001"))
+    import uvicorn
+    # 문자열 "server:app" 대신 app 객체 직접 전달!
+    uvicorn.run(app, host="0.0.0.0", port=port, reload=False, log_level="info")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,15 @@
+source;share/tb3_server/hook/cmake_prefix_path.ps1
+source;share/tb3_server/hook/cmake_prefix_path.dsv
+source;share/tb3_server/hook/cmake_prefix_path.sh
+source;share/tb3_server/hook/ros_package_path.ps1
+source;share/tb3_server/hook/ros_package_path.dsv
+source;share/tb3_server/hook/ros_package_path.sh
+source;share/tb3_server/hook/catkin_pythonpath.ps1
+source;share/tb3_server/hook/catkin_pythonpath.dsv
+source;share/tb3_server/hook/catkin_pythonpath.sh
+source;share/tb3_server/hook/pkg_config_path.ps1
+source;share/tb3_server/hook/pkg_config_path.dsv
+source;share/tb3_server/hook/pkg_config_path.sh
+source;share/tb3_server/hook/pkg_config_path_multiarch.ps1
+source;share/tb3_server/hook/pkg_config_path_multiarch.dsv
+source;share/tb3_server/hook/pkg_config_path_multiarch.sh

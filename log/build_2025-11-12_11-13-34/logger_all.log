@@ -1,0 +1,105 @@
+[0.087s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'tb3_server', '--symlink-install']
+[0.087s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['tb3_server'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x770b91c657e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x770b91c652d0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x770b91c652d0>>)
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.239s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.239s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/asd/robot_ws/src/tb3_server'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.250s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.catkin' and name 'tb3_server'
+[0.250s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.250s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.250s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.250s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.250s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.273s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.273s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.275s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/asd/robot_ws/install
+[0.276s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 383 installed packages in /opt/ros/humble
+[0.277s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.319s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'cmake_args' from command line to 'None'
+[0.319s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'cmake_target' from command line to 'None'
+[0.319s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.319s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'cmake_clean_cache' from command line to 'False'
+[0.319s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'cmake_clean_first' from command line to 'False'
+[0.319s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'cmake_force_configure' from command line to 'False'
+[0.320s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'ament_cmake_args' from command line to 'None'
+[0.320s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'catkin_cmake_args' from command line to 'None'
+[0.320s] Level 5:colcon.colcon_core.verb:set package 'tb3_server' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.320s] DEBUG:colcon.colcon_core.verb:Building package 'tb3_server' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/asd/robot_ws/src/tb3_server/build/tb3_server', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/asd/robot_ws/src/tb3_server/install/tb3_server', 'merge_install': False, 'path': '/home/asd/robot_ws/src/tb3_server', 'symlink_install': True, 'test_result_base': None}
+[0.320s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.321s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.321s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/home/asd/robot_ws/src/tb3_server' with build type 'catkin'
+[0.321s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/asd/robot_ws/src/tb3_server'
+[0.322s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.323s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.323s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.329s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake /home/asd/robot_ws/src/tb3_server -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/asd/robot_ws/src/tb3_server/install/tb3_server
+[1.156s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake /home/asd/robot_ws/src/tb3_server -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/asd/robot_ws/src/tb3_server/install/tb3_server
+[1.157s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake --build /home/asd/robot_ws/src/tb3_server/build/tb3_server -- -j12 -l12
+[1.439s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake --build /home/asd/robot_ws/src/tb3_server/build/tb3_server -- -j12 -l12
+[1.446s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake --install /home/asd/robot_ws/src/tb3_server/build/tb3_server
+[1.488s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake --install /home/asd/robot_ws/src/tb3_server/build/tb3_server
+[1.488s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb3_server', 'ros_package_path')
+[1.489s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/ros_package_path.ps1'
+[1.489s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/ros_package_path.dsv'
+[1.490s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/ros_package_path.sh'
+[1.490s] Level 1:colcon.colcon_ros.task.catkin:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages'
+[1.490s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb3_server', 'catkin_pythonpath')
+[1.490s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/catkin_pythonpath.ps1'
+[1.491s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/catkin_pythonpath.dsv'
+[1.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/catkin_pythonpath.sh'
+[1.491s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb3_server', 'pkg_config_path')
+[1.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/pkg_config_path.ps1'
+[1.491s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/pkg_config_path.dsv'
+[1.492s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/pkg_config_path.sh'
+[1.493s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb3_server', 'pkg_config_path_multiarch')
+[1.493s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/pkg_config_path_multiarch.ps1'
+[1.493s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/pkg_config_path_multiarch.dsv'
+[1.493s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/pkg_config_path_multiarch.sh'
+[1.494s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb3_server)
+[1.496s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server' for CMake module files
+[1.496s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server' for CMake config files
+[1.496s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb3_server', 'cmake_prefix_path')
+[1.497s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/cmake_prefix_path.ps1'
+[1.497s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/cmake_prefix_path.dsv'
+[1.497s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/hook/cmake_prefix_path.sh'
+[1.498s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server/lib'
+[1.498s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server/bin'
+[1.498s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server/lib/pkgconfig/tb3_server.pc'
+[1.498s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server/lib/python3.10/site-packages'
+[1.498s] Level 1:colcon.colcon_core.environment:checking '/home/asd/robot_ws/src/tb3_server/install/tb3_server/bin'
+[1.498s] INFO:colcon.colcon_core.shell:Creating package script '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.ps1'
+[1.499s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.dsv'
+[1.500s] INFO:colcon.colcon_core.shell:Creating package script '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.sh'
+[1.500s] INFO:colcon.colcon_core.shell:Creating package script '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.bash'
+[1.501s] INFO:colcon.colcon_core.shell:Creating package script '/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.zsh'
+[1.501s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/asd/robot_ws/src/tb3_server/install/tb3_server/share/colcon-core/packages/tb3_server)
+[1.502s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.502s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.502s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.502s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.506s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.506s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.506s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.514s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.514s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/asd/robot_ws/src/tb3_server/install/local_setup.ps1'
+[1.515s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/asd/robot_ws/src/tb3_server/install/_local_setup_util_ps1.py'
+[1.516s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/asd/robot_ws/src/tb3_server/install/setup.ps1'
+[1.517s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/asd/robot_ws/src/tb3_server/install/local_setup.sh'
+[1.517s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/asd/robot_ws/src/tb3_server/install/_local_setup_util_sh.py'
+[1.517s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/asd/robot_ws/src/tb3_server/install/setup.sh'
+[1.518s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/asd/robot_ws/src/tb3_server/install/local_setup.bash'
+[1.518s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/asd/robot_ws/src/tb3_server/install/setup.bash'
+[1.519s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/asd/robot_ws/src/tb3_server/install/local_setup.zsh'
+[1.520s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/asd/robot_ws/src/tb3_server/install/setup.zsh'

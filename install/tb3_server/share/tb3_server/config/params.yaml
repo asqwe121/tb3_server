@@ -1,0 +1,9 @@
+tb3_server:
+  ros__parameters:
+    use_sim_time: false
+    frame_id: map
+    rth_interval_sec: 5400.0
+    robot_namespaces: ["/tb3_1", "/tb3_2"]
+    alarm_topic_name: intruder_detected
+    siren_topic_name: siren
+    home_xyy: [0.0, 0.0, 0.0]

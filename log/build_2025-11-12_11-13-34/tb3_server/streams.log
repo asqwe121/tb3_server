@@ -1,0 +1,91 @@
+[0.008s] Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake /home/asd/robot_ws/src/tb3_server -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/asd/robot_ws/src/tb3_server/install/tb3_server
+[0.093s] -- The C compiler identification is GNU 11.4.0
+[0.186s] -- The CXX compiler identification is GNU 11.4.0
+[0.192s] -- Detecting C compiler ABI info
+[0.242s] -- Detecting C compiler ABI info - done
+[0.249s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.249s] -- Detecting C compile features
+[0.250s] -- Detecting C compile features - done
+[0.252s] -- Detecting CXX compiler ABI info
+[0.311s] -- Detecting CXX compiler ABI info - done
+[0.317s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.317s] -- Detecting CXX compile features
+[0.318s] -- Detecting CXX compile features - done
+[0.324s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.441s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.510s] -- Found rclpy: 3.3.17 (/opt/ros/humble/share/rclpy/cmake)
+[0.511s] -- Found nav2_msgs: 1.1.19 (/opt/ros/humble/share/nav2_msgs/cmake)
+[0.538s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.541s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.548s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.557s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.570s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.660s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[0.823s] -- Configuring done
+[0.826s] -- Generating done
+[0.827s] [33mCMake Warning:
+[0.827s]   Manually-specified variables were not used by the project:
+[0.827s] 
+[0.827s]     CATKIN_INSTALL_INTO_PREFIX_ROOT
+[0.827s]     CATKIN_SYMLINK_INSTALL
+[0.827s] 
+[0.827s] [0m
+[0.828s] -- Build files have been written to: /home/asd/robot_ws/src/tb3_server/build/tb3_server
+[0.835s] Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake /home/asd/robot_ws/src/tb3_server -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/asd/robot_ws/src/tb3_server/install/tb3_server
+[0.836s] Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake --build /home/asd/robot_ws/src/tb3_server/build/tb3_server -- -j12 -l12
+[0.877s] Built target ament_cmake_python_copy_tb3_server
+[1.088s] running egg_info
+[1.088s] creating tb3_server.egg-info
+[1.088s] writing tb3_server.egg-info/PKG-INFO
+[1.089s] writing dependency_links to tb3_server.egg-info/dependency_links.txt
+[1.089s] writing top-level names to tb3_server.egg-info/top_level.txt
+[1.089s] writing manifest file 'tb3_server.egg-info/SOURCES.txt'
+[1.090s] reading manifest file 'tb3_server.egg-info/SOURCES.txt'
+[1.091s] writing manifest file 'tb3_server.egg-info/SOURCES.txt'
+[1.110s] Built target ament_cmake_python_build_tb3_server_egg
+[1.118s] Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake --build /home/asd/robot_ws/src/tb3_server/build/tb3_server -- -j12 -l12
+[1.125s] Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake --install /home/asd/robot_ws/src/tb3_server/build/tb3_server
+[1.131s] -- Install configuration: ""
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/environment/pythonpath.sh
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/environment/pythonpath.dsv
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server-0.1.0-py3.10.egg-info
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server-0.1.0-py3.10.egg-info/dependency_links.txt
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server-0.1.0-py3.10.egg-info/PKG-INFO
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server-0.1.0-py3.10.egg-info/SOURCES.txt
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server-0.1.0-py3.10.egg-info/top_level.txt
+[1.131s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server
+[1.132s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/__init__.py
+[1.132s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/alarm_node.py
+[1.132s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/qr_reader_node.py
+[1.132s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/coordinator_node.py
+[1.160s] Listing '/home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server'...
+[1.160s] Compiling '/home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/__init__.py'...
+[1.160s] Compiling '/home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/alarm_node.py'...
+[1.160s] Compiling '/home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/coordinator_node.py'...
+[1.160s] Compiling '/home/asd/robot_ws/src/tb3_server/install/tb3_server/local/lib/python3.10/dist-packages/tb3_server/qr_reader_node.py'...
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/lib/tb3_server/coordinator
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/lib/tb3_server/qr_reader
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/lib/tb3_server/alarm
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/launch
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/launch/bringup_patrol.launch.py.py
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/config
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/config/qr_waypoints.yaml
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/config/params.yaml
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/resource
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/resource/tb3_server
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/ament_index/resource_index/package_run_dependencies/tb3_server
+[1.164s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/ament_index/resource_index/parent_prefix_path/tb3_server
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/environment/ament_prefix_path.sh
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/environment/ament_prefix_path.dsv
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/environment/path.sh
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/environment/path.dsv
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/local_setup.bash
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/local_setup.sh
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/local_setup.zsh
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/local_setup.dsv
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.dsv
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/ament_index/resource_index/packages/tb3_server
+[1.165s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/cmake/tb3_serverConfig.cmake
+[1.166s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/cmake/tb3_serverConfig-version.cmake
+[1.166s] -- Installing: /home/asd/robot_ws/src/tb3_server/install/tb3_server/share/tb3_server/package.xml
+[1.167s] Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake --install /home/asd/robot_ws/src/tb3_server/build/tb3_server

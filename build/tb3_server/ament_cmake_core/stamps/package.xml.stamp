@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>tb3_server</name>
+  <version>0.1.0</version>
+  <description>Patrol coordinator with QR→Nav2, alarm/buzzer, and handoff/return</description>
+  <maintainer email="you@example.com">you</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>nav2_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>sensor_msgs</depend>
+
+  <!-- TB3 부저용 (있으면 사용, 없어도 동작) -->
+  <exec_depend>turtlebot3_msgs</exec_depend>
+
+  <!-- QR 카메라 해석을 실제로 쓰고 싶다면 (옵션) -->
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_transport</exec_depend>
+
+  <export/>
+</package>

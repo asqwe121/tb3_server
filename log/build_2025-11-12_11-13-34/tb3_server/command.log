@@ -1,0 +1,6 @@
+Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake /home/asd/robot_ws/src/tb3_server -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/asd/robot_ws/src/tb3_server/install/tb3_server
+Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake /home/asd/robot_ws/src/tb3_server -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/asd/robot_ws/src/tb3_server/install/tb3_server
+Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake --build /home/asd/robot_ws/src/tb3_server/build/tb3_server -- -j12 -l12
+Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake --build /home/asd/robot_ws/src/tb3_server/build/tb3_server -- -j12 -l12
+Invoking command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server': /usr/bin/cmake --install /home/asd/robot_ws/src/tb3_server/build/tb3_server
+Invoked command in '/home/asd/robot_ws/src/tb3_server/build/tb3_server' returned '0': /usr/bin/cmake --install /home/asd/robot_ws/src/tb3_server/build/tb3_server
